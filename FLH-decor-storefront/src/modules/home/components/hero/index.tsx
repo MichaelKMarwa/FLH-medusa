@@ -1,36 +1,35 @@
-import { Github } from "@medusajs/icons"
-import { Button, Heading } from "@medusajs/ui"
+import Image from 'next/image'
+import { Button } from 'FLH-decor-storefront/src/modules/layout/components/ui/button.tsx'
 
-const Hero = () => {
+export function Hero() {
   return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6">
-        <span>
-          <Heading
-            level="h1"
-            className="text-3xl leading-10 text-ui-fg-base font-normal"
-          >
-            Ecommerce Starter Template
-          </Heading>
-          <Heading
-            level="h2"
-            className="text-3xl leading-10 text-ui-fg-subtle font-normal"
-          >
-            Powered by Medusa and Next.js
-          </Heading>
-        </span>
-        <a
-          href="https://github.com/medusajs/nextjs-starter-medusa"
-          target="_blank"
-        >
-          <Button variant="secondary">
-            View on GitHub
-            <Github />
-          </Button>
-        </a>
+    <section className="relative h-[600px]">
+      <div className="absolute inset-0">
+        <Image
+          src="/images/hero-bg.jpg"
+          alt="Modern Furniture"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-secondary/40" />
       </div>
-    </div>
+
+      <div className="relative h-full flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <h1 className="font-space text-5xl font-bold text-background mb-6">
+              Modern Furniture for Creative Spaces
+            </h1>
+            <Button 
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-background font-space"
+            >
+              Explore Collection
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }
-
-export default Hero

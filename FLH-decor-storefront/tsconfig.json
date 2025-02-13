@@ -14,11 +14,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
+      "FLH-decor-storefront/*": ["src/*"],
+      "@/*": ["./src/*"],
+      "@/modules/*": ["modules/*"],
+      "@/components/*": ["components/*"],
+      "@/layout": ["layout/*"],
       "@lib/*": ["lib/*"],
       "@modules/*": ["modules/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@styles": ["styles/*"]
     },
     "plugins": [
       {

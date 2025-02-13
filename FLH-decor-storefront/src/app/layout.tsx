@@ -1,16 +1,27 @@
-import { getBaseURL } from "@lib/util/env"
-import { Metadata } from "next"
-import "styles/globals.css"
+import type { Metadata } from 'next'
+import { Inter, Space_Grotesk } from 'next/font/google'
+import '@/styles/globals'
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const space = Space_Grotesk({ 
+  subsets: ['latin'], 
+  variable: '--font-space',
+  weight: ['400', '700']
+})
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getBaseURL()),
+  title: 'Furnixar Clone',
 }
 
-export default function RootLayout(props: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" data-mode="light">
-      <body>
-        <main className="relative">{props.children}</main>
+    <html lang="en">
+      <body className={`${inter.variable} ${space.variable} bg-background`}>
+        {children}
       </body>
     </html>
   )

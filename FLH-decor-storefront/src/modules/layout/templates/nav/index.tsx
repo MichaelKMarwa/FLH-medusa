@@ -1,60 +1,43 @@
-import { Suspense } from "react"
+'use client'
+import { Menu, ShoppingCart } from 'lucide-react'
+import { Sheet, SheetContent, SheetTrigger } from '@/layout/components/ui/sheet'
+import MobileNav from './mobile-nav'
+import NavItems from './nav-items'
 
-import { listRegions } from "@lib/data/regions"
-import { StoreRegion } from "@medusajs/types"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import CartButton from "@modules/layout/components/cart-button"
-import SideMenu from "@modules/layout/components/side-menu"
-
-export default async function Nav() {
-  const regions = await listRegions().then((regions: StoreRegion[]) => regions)
-
+export function MainNav() {
   return (
-    <div className="sticky top-0 inset-x-0 z-50 group">
-      <header className="relative h-16 mx-auto border-b duration-200 bg-white border-ui-border-base">
-        <nav className="content-container txt-xsmall-plus text-ui-fg-subtle flex items-center justify-between w-full h-full text-small-regular">
-          <div className="flex-1 basis-0 h-full flex items-center">
-            <div className="h-full">
-              <SideMenu regions={regions} />
-            </div>
+    <header className="sticky top-0 bg-background/80 backdrop-blur-lg border-b">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          
+          {/* Desktop Logo */}
+          <div className="hidden lg:flex">
+            <span className="font-space text-2xl font-bold text-secondary">FURNIXAR</span>
           </div>
 
-          <div className="flex items-center h-full">
-            <LocalizedClientLink
-              href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
-              data-testid="nav-store-link"
-            >
-              Medusa Store
-            </LocalizedClientLink>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex space-x-8">
+            <NavItems />
+          </nav>
+
+          {/* Mobile Menu */}
+          <div className="lg:hidden">
+            <Sheet>
+              <SheetTrigger>
+                <Menu className="h-6 w-6 text-secondary" />
+              </SheetTrigger>
+              <SheetContent side="left">
+                <MobileNav />
+              </SheetContent>
+            </Sheet>
           </div>
 
-          <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base"
-                href="/account"
-                data-testid="nav-account-link"
-              >
-                Account
-              </LocalizedClientLink>
-            </div>
-            <Suspense
-              fallback={
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base flex gap-2"
-                  href="/cart"
-                  data-testid="nav-cart-link"
-                >
-                  Cart (0)
-                </LocalizedClientLink>
-              }
-            >
-              <CartButton />
-            </Suspense>
-          </div>
-        </nav>
-      </header>
-    </div>
+          {/* Cart */}
+          <button className="p-2 text-secondary hover:text-primary transition-colors">
+            <ShoppingCart className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+    </header>
   )
 }
