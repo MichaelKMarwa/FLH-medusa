@@ -1,10 +1,10 @@
 'use client'
 import { Menu, ShoppingCart } from 'lucide-react'
-import { Sheet, SheetContent, SheetTrigger } from '@/layout/components/ui/sheet'
+import { Sheet, SheetContent, SheetTrigger } from '@/modules/layout/components/ui/sheet'
 import MobileNav from './mobile-nav'
 import NavItems from './nav-items'
 
-export function MainNav() {
+export function Nav() {
   return (
     <header className="sticky top-0 bg-background/80 backdrop-blur-lg border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,7 +26,7 @@ export function MainNav() {
               <SheetTrigger>
                 <Menu className="h-6 w-6 text-secondary" />
               </SheetTrigger>
-              <SheetContent side="left">
+              <SheetContent className="w-[300px]">
                 <MobileNav />
               </SheetContent>
             </Sheet>
@@ -41,3 +41,5 @@ export function MainNav() {
     </header>
   )
 }
+
+export default Nav;

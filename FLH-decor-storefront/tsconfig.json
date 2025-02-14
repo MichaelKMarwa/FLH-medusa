@@ -16,13 +16,11 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "FLH-decor-storefront/*": ["src/*"],
       "@/*": ["./src/*"],
-      "@/modules/*": ["modules/*"],
-      "@/components/*": ["components/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@components/*": ["./src/modules/components/*"],
       "@/layout": ["layout/*"],
       "@lib/*": ["lib/*"],
-      "@modules/*": ["modules/*"],
       "@pages/*": ["pages/*"],
       "@styles": ["styles/*"]
     },
