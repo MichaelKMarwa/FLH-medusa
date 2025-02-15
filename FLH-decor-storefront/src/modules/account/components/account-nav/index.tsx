@@ -10,7 +10,7 @@ import MapPin from "@modules/common/icons/map-pin"
 import Package from "@modules/common/icons/package"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
-import { signout } from "@lib/data/customer"
+import { signout } from "@/lib/data/customer"
 
 const AccountNav = ({
   customer,

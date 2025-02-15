@@ -1,7 +1,7 @@
 "use client"
 
-import { addToCart } from "@lib/data/cart"
-import { useIntersection } from "@lib/hooks/use-in-view"
+import { addToCart } from "@/lib/data/cart"
+import { useIntersection } from "@/lib/hooks/use-in-view"
 import { HttpTypes } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"

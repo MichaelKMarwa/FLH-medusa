@@ -1,4 +1,4 @@
-import { listProducts } from "@lib/data/products"
+import { listProducts } from "@/lib/data/products"
 import { HttpTypes } from "@medusajs/types"
 import ProductActions from "@modules/products/components/product-actions"
 
