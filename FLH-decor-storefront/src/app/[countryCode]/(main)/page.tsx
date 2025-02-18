@@ -1,4 +1,4 @@
-// src/app/[countryCode]/(main)/page.tsx]
+// src/app/[countryCode]/(main)/page.tsx
 'use client'
 import HeroBanner from '@/modules/home/components/hero-banner';
 import FeaturedCategories from '@/modules/home/components/featured-categories';

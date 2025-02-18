@@ -5,6 +5,7 @@ export async function getProducts() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        // Remove any unnecessary headers here
       },
     });
 
