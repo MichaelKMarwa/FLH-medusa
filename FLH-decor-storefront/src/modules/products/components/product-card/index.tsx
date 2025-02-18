@@ -1,36 +1,37 @@
-import { Button } from '@/modules/layout/components/ui/button'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Product } from '@/types/product'
+// src/modules/products/components/product-card.tsx
+'use client'; // Mark as a client component since it uses Link
+import Link from 'next/link';
+import Image from 'next/image';
+import { Button } from '@/modules/layout/components/ui/button'; // Assuming Shadcn UI is installed
 
-export function ProductCard({ product }: { product: Product }) {
+interface ProductCardProps {
+  product: {
+    id: string;
+    title: string;
+    description: string;
+    thumbnail: string;
+  };
+}
+
+export default function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="group relative">
-      <Link href={`/products/${product.id}`} className="block">
-        <div className="aspect-square relative bg-accent/10 rounded-lg overflow-hidden">
-          <Image
-            src={product.thumbnail || '/images/placeholder-product.jpg'}
-            alt={product.title}
-            fill
-            className="object-cover transition-transform group-hover:scale-105"
-            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-          />
-        </div>
+    <div className="rounded-lg shadow-md bg-white overflow-hidden transition-transform hover:scale-105">
+      <Link href={`/products/${product.id}`}>
+        <Image
+          src={product.thumbnail || '/placeholder.jpg'} // Fallback image if no thumbnail exists
+          alt={product.title}
+          width={300}
+          height={200}
+          className="w-full h-48 object-cover"
+        />
       </Link>
-
-      <div className="mt-4 space-y-1">
-        <h3 className="font-inter font-medium text-text">{product.title}</h3>
-        <div className="flex items-center justify-between">
-          <Price price={product.price} />
-          <Button
-            size="sm"
-            className="opacity-0 group-hover:opacity-100 transition-opacity"
-            variant="secondary"
-          >
-            Add to Cart
-          </Button>
-        </div>
+      <div className="p-4">
+        <h3 className="text-lg font-medium text-gray-800">{product.title}</h3>
+        <p className="text-sm text-gray-600 mt-2">{product.description}</p>
+        <Button asChild className="mt-4 w-full">
+          <Link href={`/products/${product.id}`}>View Details</Link>
+        </Button>
       </div>
     </div>
-  )
+  );
 }

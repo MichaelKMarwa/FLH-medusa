@@ -1,47 +1,47 @@
-// src/app/[countryCode]/(main)/page.tsx
-import { Nav } from '@/modules/layout/templates/nav'
-import { Hero } from '@/modules/home/components/hero'
-import { NewArrivals } from '@/modules/products/components/new-arrivals'
-import { Newsletter } from '@/modules/marketing/components/newsletter'
-import { Footer } from '@/modules/layout/templates/footer'
-import {medusa} from '@/lib/medusa'
+// src/app/[countryCode]/(main)/page.tsx]
+'use client'
+import HeroBanner from '@/modules/home/components/hero-banner';
+import FeaturedCategories from '@/modules/home/components/featured-categories';
+import ProductList from '@/modules/products/components/product-list';
+import { getProducts } from '@/lib/medusa';
+import { useEffect, useState } from 'react';
 
-export default async function HomePage() {
-  let products = []
-  
-  try {
-    const { products: medusaProducts } = await medusa.products.list({
-      limit: 8,
-      order: "created_at",
-      expand: ["variants", "tags"],
-      fields: "id,title,handle,thumbnail,variants,tags"
-    })
+export default async function HomePage({ params }: { params: { countryCode: string } }) {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    products = medusaProducts.map(product => ({
-      id: product.id,
-      title: product.title,
-      handle: product.handle,
-      thumbnail: product.thumbnail,
-      tags: product.tags?.map(t => t.value),
-      price: {
-        amount: product.variants?.[0]?.prices?.[0]?.amount || 0,
-        original_amount: product.variants?.[0]?.prices?.[0]?.original_amount,
-        currency_code: product.variants?.[0]?.prices?.[0]?.currency_code || 'DKK'
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const fetchedProducts = await getProducts();
+        setProducts(fetchedProducts);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
       }
-    }))
+    };
 
-  } catch (error) {
-    console.error("Product fetch error:", error)
-    // Implement error state
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
   }
 
   return (
-    <div className="min-h-screen">
-      <Nav />
-      <Hero />
-      <NewArrivals products={products} />
-      <Newsletter />
-      <Footer />
+    <div>
+      <HeroBanner />
+      <FeaturedCategories />
+      <section className="my-12">
+        <h2 className="text-3xl font-semibold text-gray-800 mb-8">New Arrivals</h2>
+        <ProductList products={products} />
+      </section>
     </div>
-  )
+  );
 }

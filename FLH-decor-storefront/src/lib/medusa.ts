@@ -1,9 +1,22 @@
-import Medusa from "@medusajs/medusa-js"
+// src/lib/medusa.ts
+export async function getProducts() {
+  try {
+    const response = await fetch(`${process.env.MEDUSA_BACKEND_URL}/store/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
-const MEDUSA_BACKEND_URL = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Failed to fetch products: ${response.statusText} - ${errorText}`);
+    }
 
-export const medusa = new Medusa({
-  maxRetries: 0,
-  baseUrl: MEDUSA_BACKEND_URL,
-  timeout: 8000 // 8 second timeout
-})
+    const data = await response.json();
+    return data.products; // Assuming the API returns an array of products
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error; // Re-throw the error to be handled by the caller
+  }
+}
