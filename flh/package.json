@@ -30,8 +30,11 @@
     "@mikro-orm/knex": "6.4.3",
     "@mikro-orm/migrations": "6.4.3",
     "@mikro-orm/postgresql": "6.4.3",
+    "@sentry/nextjs": "^9.1.0",
     "awilix": "^8.0.1",
-    "pg": "^8.13.0"
+    "next-i18next": "^15.4.2",
+    "pg": "^8.13.0",
+    "three": "^0.173.0"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.5.0",
