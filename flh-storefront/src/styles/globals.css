@@ -146,3 +146,23 @@ nav .dropdown a:hover {
 nav .badge {
   @apply bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center absolute -top-1 -right-1;
 }
+
+body {
+  @apply bg-white text-gray-800;
+}
+
+.hero {
+  @apply relative overflow-hidden;
+}
+
+.hero h1 {
+  @apply text-5xl md:text-6xl font-bold text-white mb-4;
+}
+
+.hero p {
+  @apply text-lg md:text-xl text-white mb-8;
+}
+
+.hero button {
+  @apply px-6 py-3 rounded-md transition duration-300 ease-in-out;
+}

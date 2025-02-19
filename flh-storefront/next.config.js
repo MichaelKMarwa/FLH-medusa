@@ -19,6 +19,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    domains: ['unsplash.com'],
     remotePatterns: [
       {
         protocol: "http",
