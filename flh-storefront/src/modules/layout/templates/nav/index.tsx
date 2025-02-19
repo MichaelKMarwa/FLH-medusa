@@ -67,13 +67,13 @@ const Nav = () => {
           {isHomeDropdownOpen && (
             <div className="absolute top-full left-0 w-48 bg-white shadow-md z-10">
               <Link href="/about" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">About Us</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">About Us</div>
               </Link>
               <Link href="/services" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Services</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Services</div>
               </Link>
               <Link href="/faq" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">FAQ</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">FAQ</div>
               </Link>
             </div>
           )}
@@ -85,13 +85,13 @@ const Nav = () => {
           {isPagesDropdownOpen && (
             <div className="absolute top-full left-0 w-48 bg-white shadow-md z-10">
               <Link href="/contact" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contact</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contact</div>
               </Link>
               <Link href="/terms" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Terms & Conditions</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Terms & Conditions</div>
               </Link>
               <Link href="/privacy" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Privacy Policy</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Privacy Policy</div>
               </Link>
             </div>
           )}
@@ -103,13 +103,13 @@ const Nav = () => {
           {isShopDropdownOpen && (
             <div className="absolute top-full left-0 w-48 bg-white shadow-md z-10">
               <Link href="/categories/living-room" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Living Room</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Living Room</div>
               </Link>
               <Link href="/categories/bedroom" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Bedroom</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Bedroom</div>
               </Link>
               <Link href="/categories/kitchen" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Kitchen</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Kitchen</div>
               </Link>
             </div>
           )}
@@ -121,19 +121,19 @@ const Nav = () => {
           {isBlogDropdownOpen && (
             <div className="absolute top-full left-0 w-48 bg-white shadow-md z-10">
               <Link href="/blog" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">All Posts</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">All Posts</div>
               </Link>
               <Link href="/blog/category/tips" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Tips</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Tips</div>
               </Link>
               <Link href="/blog/category/reviews" passHref>
-                <a className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Reviews</a>
+                <div className="block px-4 py-2 text-gray-800 hover:bg-gray-100">Reviews</div>
               </Link>
             </div>
           )}
         </div>
         <Link href="/contact" passHref>
-          <a>Contact</a>
+          <div className="cursor-pointer">Contact</div>
         </Link>
       </div>
       <div className="flex space-x-4">
