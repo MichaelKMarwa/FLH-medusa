@@ -1,6 +1,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+/* flh-storefront/src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer utilities {
   /* Chrome, Safari and Opera */
@@ -109,4 +113,36 @@
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
   }
+}
+
+body {
+  @apply bg-white dark:bg-gray-900 text-gray-800 dark:text-white;
+}
+
+nav {
+  @apply shadow-md;
+}
+
+nav button {
+  @apply focus:outline-none;
+}
+
+nav .group:hover > div {
+  @apply block;
+}
+
+nav .dropdown {
+  @apply hidden group-hover:block absolute top-full left-0 w-48 bg-white shadow-md z-10;
+}
+
+nav .dropdown a {
+  @apply block px-4 py-2 text-gray-800 hover:bg-gray-100;
+}
+
+nav .dropdown a:hover {
+  @apply bg-gray-100;
+}
+
+nav .badge {
+  @apply bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center absolute -top-1 -right-1;
 }
