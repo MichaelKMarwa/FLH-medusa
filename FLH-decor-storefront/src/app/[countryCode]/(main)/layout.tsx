@@ -1,5 +1,5 @@
 // src/app/[countryCode]/(main)/layout.tsx
- // Mark as a client component since it uses Navbar
+// Mark as a client component since it uses Navbar
 import { Metadata } from 'next';
 import { listCartOptions, retrieveCart } from '@/lib/data/cart';
 import { retrieveCustomer } from '@/lib/data/customer';
@@ -12,8 +12,8 @@ import FreeShippingPriceNudge from '@modules/shipping/components/free-shipping-p
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
-  title: 'Your Store Title',
-  description: 'Your store description',
+  title: 'Feels Like Home',
+  description: 'It just has to be home',
   viewport: 'width=device-width, initial-scale=1',
 };
 
@@ -28,7 +28,7 @@ export default async function PageLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
-      <body className="bg-gray-100 font-sans antialiased">
+      <body className="bg-gray-100 antialiased suppressHydrationWarning">
         <Navbar />
         {customer && cart && (
           <CartMismatchBanner customer={customer} cart={cart} />
